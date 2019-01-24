@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Nav from "./Nav";
 
 class Forecast extends Component {
   constructor(props) {
@@ -6,7 +7,12 @@ class Forecast extends Component {
     this.state = {};
   }
   render() {
-    return <p>forecast</p>;
+    return (
+      <div>
+        <Nav />
+        <p>forecast</p>;
+      </div>
+    );
   }
 }
 

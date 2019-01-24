@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Forecasts from "./Forecast";
+import Nav from "./Nav";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const currentAPIFront = "https://api.openweathermap.org/data/2.5/weather?q=";
 const currentAPIBack = "&type=accurate&APPID=bc72d750ab71be71217ddaaa52e98d46";
@@ -42,21 +44,12 @@ class Weather extends Component {
   }
 
   render() {
+    const match = window.location.href;
+    const location = this.state.location;
+    console.log(match);
     return (
       <div>
-        <div className="top">
-          <h1>Weather Application</h1>
-          <form className="right">
-            <input
-              type="text"
-              placeholder="Sunnyvale, California"
-              className="text textheight"
-            />
-            <button type="submit" className="button btnwidth">
-              Get Weather
-            </button>
-          </form>
-        </div>
+        <Nav />
         <div className="container">
           <form className="column" onSubmit={this.handleSubmit}>
             <label className="header">Enter a City and State</label>
@@ -67,9 +60,15 @@ class Weather extends Component {
               value={this.state.location}
               onChange={this.handleChange}
             />
-            <button type="submit" className="button">
+            <Link
+              className="button"
+              to={{
+                pathname: "/forecast",
+                search: `?city=` + location
+              }}
+            >
               Get Weather
-            </button>
+            </Link>
           </form>
         </div>
       </div>
