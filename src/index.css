@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Space+Mono");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Space Mono", sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
@@ -93,4 +93,8 @@ code {
 
 .btnwidth {
   margin-left: 10px;
+}
+
+link {
+  text-decoration: none;
 }
