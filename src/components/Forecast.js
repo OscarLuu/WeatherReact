@@ -6,6 +6,14 @@ const currentAPIBack = "&type=accurate&APPID=bc72d750ab71be71217ddaaa52e98d46";
 const futureAPIFront = "https://api.openweathermap.org/data/2.5/forecast?q=";
 const futureAPIBack = "&type=accurate&APPID=bc72d750ab71be71217ddaaa52e98d46";
 
+const Title = props => {
+  return (
+    <div>
+      <h3>{props.location}</h3>
+    </div>
+  );
+};
+
 class Forecast extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +30,8 @@ class Forecast extends Component {
 
     fetch(futureURL)
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => console.log(data))
+      .then(this.setState({ loading: false }));
 
     fetch(currentURL)
       .then(response => response.json())
@@ -30,11 +39,15 @@ class Forecast extends Component {
   }
 
   render() {
-    console.log(this.props.location.state.location);
+    const location = this.props.location.state.location;
     return (
       <div>
         <Nav />
-        {(this.state.loading = true ? <p>Loading</p> : <p>forecast</p>)}
+        {this.state.loading == true ? (
+          <p>Loading</p>
+        ) : (
+          <Title location={location} />
+        )}
       </div>
     );
   }
