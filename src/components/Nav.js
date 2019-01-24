@@ -3,21 +3,15 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="top">
+    <div>
       <p>
         <Link style={{ textDecoration: "none" }} to="/">
           Weather Application
         </Link>
       </p>
-      <form className="right">
-        <input
-          type="text"
-          placeholder="Sunnyvale, California"
-          className="text textheight"
-        />
-        <button type="submit" className="button btnwidth">
-          Get Weather
-        </button>
+      <form>
+        <input type="text" placeholder="Sunnyvale, California" />
+        <button type="submit">Get Weather</button>
       </form>
     </div>
   );
