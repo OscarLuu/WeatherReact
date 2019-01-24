@@ -4,12 +4,14 @@ import Nav from "./Nav";
 const currentAPIFront = "https://api.openweathermap.org/data/2.5/weather?q=";
 const currentAPIBack = "&type=accurate&APPID=bc72d750ab71be71217ddaaa52e98d46";
 const futureAPIFront = "https://api.openweathermap.org/data/2.5/forecast?q=";
-const futureAPIBack = "&type=accurate&APPID=bc72d750ab71be71217ddaaa52e98d46";
+const futureAPIBack =
+  "&type=accurate&APPID=bc72d750ab71be71217ddaaa52e98d46&cnt=3";
 
-const Title = props => {
+const UserInterface = props => {
   return (
-    <div>
-      <h3>{props.location}</h3>
+    <div className="item-container">
+      <p className="title">{props.location}</p>
+      <div />
     </div>
   );
 };
@@ -19,7 +21,7 @@ class Forecast extends Component {
     super(props);
     this.state = {
       loading: true,
-      items: {}
+      date: 0
     };
   }
 
@@ -30,7 +32,7 @@ class Forecast extends Component {
 
     fetch(futureURL)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => console.log(data.list[0].dt_txt))
       .then(this.setState({ loading: false }));
 
     fetch(currentURL)
@@ -40,13 +42,14 @@ class Forecast extends Component {
 
   render() {
     const location = this.props.location.state.location;
+
     return (
       <div>
         <Nav />
-        {this.state.loading == true ? (
+        {this.state.loading === true ? (
           <p>Loading</p>
         ) : (
-          <Title location={location} />
+          <UserInterface location={location} data={this.state.items} />
         )}
       </div>
     );

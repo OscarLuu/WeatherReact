@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const Nav = () => {
   return (
     <div className="top">
-      <h2>
+      <p>
         <Link style={{ textDecoration: "none" }} to="/">
           Weather Application
         </Link>
-      </h2>
+      </p>
       <form className="right">
         <input
           type="text"
