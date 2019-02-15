@@ -13,11 +13,6 @@ body {
   background-attachment: fixed;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -45,6 +40,20 @@ code {
   transform: translateY(1px);
 }
 
+.button-top:active {
+  transform: translateY(1px);
+}
+
+.button-top {
+  color: #e6e6e6;
+  background: #048b8e;
+  border: none;
+  font-size: 11px;
+  border-radius: 3px;
+  text-align: center;
+  margin-left: 10px;
+}
+
 .column {
   padding: 5%;
   background-color: white;
@@ -61,18 +70,6 @@ code {
   padding-bottom: 3%;
 }
 
-.top {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-
-.btnwidth {
-  margin-left: 10px;
-}
-
 .item-container {
   display: flex;
   width: 75%;
@@ -80,4 +77,29 @@ code {
   background: white;
   margin: 10% auto auto auto;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.title {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.right {
+  padding: 1% 1% 0 2%;
+}
+
+.TitleLink {
+  padding-left: 1%;
+}
+
+.input-text-row {
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.button-top {
+  white-space: nowrap;
 }

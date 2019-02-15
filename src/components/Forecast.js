@@ -10,8 +10,11 @@ const futureAPIBack =
 const UserInterface = props => {
   return (
     <div className="item-container">
-      <p className="title">{props.location}</p>
-      <div />
+      <p>{props.data.name}</p>
+      {console.log(props.data)}
+      {props.data.weather.map(item => (
+        <p>{item}</p>
+      ))}
     </div>
   );
 };
@@ -20,8 +23,8 @@ class Forecast extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
-      date: 0
+      data3: 0,
+      data: 0
     };
   }
 
@@ -32,24 +35,21 @@ class Forecast extends Component {
 
     fetch(futureURL)
       .then(response => response.json())
-      .then(data => console.log(data.list[0].dt_txt))
-      .then(this.setState({ loading: false }));
+      .then(data => this.setState({ data3: data, loading: false }));
 
     fetch(currentURL)
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => this.setState({ data: data }));
   }
 
   render() {
-    const location = this.props.location.state.location;
-
     return (
       <div>
         <Nav />
         {this.state.loading === true ? (
           <p>Loading</p>
         ) : (
-          <UserInterface location={location} data={this.state.items} />
+          <UserInterface data3={this.state.data3} data={this.state.data} />
         )}
       </div>
     );
